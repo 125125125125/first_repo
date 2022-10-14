@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CRUDOperation.Areas.Admin.Data.MyModel>
+
+@{
+    ViewBag.Title = "StudentInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StudentInfo</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            CourseInfo
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Contact
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.MyCourses.Course
+        </td>
+        <td>
+            @item.MyStudents.Name
+        </td>
+        <td>
+            @item.MyStudents.Email
+        </td>
+        <td>
+            @item.MyStudents.Contact
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MyStudents.StudentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MyStudents.StudentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MyStudents.StudentID })
+        </td>
+    </tr>
+}
+
+</table>
